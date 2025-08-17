@@ -2,41 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Premium billion-dollar company design system. All colors MUST be HSL. */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Premium gradient backgrounds */
+    --background: 240 10% 3.9%;
+    --background-secondary: 240 8% 6%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Premium card colors */
+    --card: 240 10% 3.9%;
+    --card-secondary: 240 8% 8%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Premium brand colors */
+    --primary: 262 100% 65%;
+    --primary-dark: 262 100% 55%;
+    --primary-light: 262 100% 75%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 240 4.8% 15.9%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 240 4.8% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 262 100% 65%;
+    --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 60.6%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 262 100% 65%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
+
+    /* Premium gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(262, 100%, 65%), hsl(262, 100%, 55%));
+    --gradient-secondary: linear-gradient(135deg, hsl(240, 10%, 8%), hsl(240, 8%, 12%));
+    --gradient-accent: linear-gradient(135deg, hsl(262, 100%, 75%), hsl(300, 100%, 65%));
+    --gradient-background: linear-gradient(225deg, hsl(240, 10%, 3.9%) 0%, hsl(240, 8%, 6%) 50%, hsl(262, 30%, 8%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(240, 10%, 8%) 0%, hsl(240, 8%, 12%) 100%);
+    --gradient-border: linear-gradient(90deg, hsl(262, 100%, 65%), hsl(300, 100%, 65%));
+
+    /* Premium shadows */
+    --shadow-premium: 0 25px 50px -12px hsl(262, 100%, 25% / 0.25);
+    --shadow-glow: 0 0 40px hsl(262, 100%, 65% / 0.3);
+    --shadow-card: 0 10px 30px -10px hsl(240, 10%, 0% / 0.3);
+    --shadow-button: 0 8px 25px -8px hsl(262, 100%, 65% / 0.4);
+
+    /* Premium animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +124,72 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background: var(--gradient-background);
+    min-height: 100vh;
   }
+
+  /* Premium utility classes */
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .gradient-border {
+    background: var(--gradient-border);
+  }
+
+  .shadow-premium {
+    box-shadow: var(--shadow-premium);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-button {
+    box-shadow: var(--shadow-button);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  /* Premium animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px hsl(262, 100%, 65% / 0.3); }
+    50% { box-shadow: 0 0 40px hsl(262, 100%, 65% / 0.6); }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+}
 }
